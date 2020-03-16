@@ -1,9 +1,9 @@
 import React from "react";
-import Rows from "../EmployeeRow";
+import EmployeeRow from "../EmployeeRow";
 import "./style.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-function EmployeeTable() {
+function EmployeeTable(props) {
   return (
     <table className="table table-striped">
           <thead className="thead-dark">
@@ -16,7 +16,13 @@ function EmployeeTable() {
             </tr>
           </thead>
           <tbody>
-            <Rows />
+            <EmployeeRow 
+              photo={props.photo}
+              name={props.name}
+              phone={props.phone}
+              email={props.email}
+              DOB={props.DOB}
+            />
           </tbody>
         </table>
   );

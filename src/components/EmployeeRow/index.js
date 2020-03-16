@@ -5,11 +5,11 @@ import "./style.css";
 function EmployeeRow(props) {
   return (
     <tr>
-        <td>photo</td>
-        <td>Han Solo</td>
-        <td>(555)234-5678</td>
-        <td>han@falcon.holo</td>
-        <td>10-13-1987</td>
+        <td class="align-middle"><img src={props.photo} alt="headshot"></img></td>
+        <td class="align-middle">{props.name}</td>
+        <td class="align-middle">{props.phone}</td>
+        <td class="align-middle">{props.email}</td>
+        <td class="align-middle">{props.DOB}</td>
     </tr>
   );
 }
