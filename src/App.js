@@ -1,8 +1,8 @@
 import React from 'react';
 import JumboTron from "./components/JumboTron";
 import SearchBar from "./components/SearchBar";
+import Employees from "./pages/Employees";
 import './App.css';
-import EmployeeTable from './components/EmployeeTable';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <JumboTron />
         <div className="container">
           <SearchBar />
-          <EmployeeTable />
+          <Employees />
         </div>
     </div>
   );
