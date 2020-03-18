@@ -16,7 +16,7 @@ function EmployeeTable(props) {
             </tr>
           </thead>
           <tbody>
-            <EmployeeRow 
+            <EmployeeRow
               photo={props.photo}
               name={props.name}
               phone={props.phone}
