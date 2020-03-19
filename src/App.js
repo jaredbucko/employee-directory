@@ -1,11 +1,9 @@
 import React, { useEffect, useState} from 'react';
 import axios from "axios";
 import PersonsContext from "./components/PersonsContext/personsContext";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import JumboTron from "./components/JumboTron";
 import SearchBar from "./components/SearchBar";
-import Employees from "./pages/Employees";
-import StaticEmployees from "./pages/StaticEmployees";
+import EmployeeTable from "./components/EmployeeTable";
 
 function App() {
   const [personsState, setPersonsState] = useState([]);
@@ -19,16 +17,13 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <PersonsContext.Provider value={personsState}>
-        <div>
-          <JumboTron />
-          <SearchBar />
-          <Route exact path="/" component={Employees} />
-          <Route exact path="/static" component={StaticEmployees} />
-        </div>
-      </PersonsContext.Provider>
-    </Router>
+    <PersonsContext.Provider value={personsState}>
+      <div>
+        <JumboTron />
+        <SearchBar />
+        <EmployeeTable />
+      </div>
+    </PersonsContext.Provider>
   );
 }
 
