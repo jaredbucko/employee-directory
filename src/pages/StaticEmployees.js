@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import staticData from "../db/static_data.json"
 import TableBody from "../components/TableBody"
 
-
 class StaticEmployees extends Component {
     state = {
         persons: [],
