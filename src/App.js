@@ -11,12 +11,12 @@ function App() {
   const [personsState, setPersonsState] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/?results=200&nat=us`)
+    axios.get(`https://randomuser.me/api/?results=200&nat=us`)
     .then(res => {
       const personsArr = res.data.results;
       setPersonsState(personsArr);
     })
-  })
+  }, []);
 
   return (
     <Router>
