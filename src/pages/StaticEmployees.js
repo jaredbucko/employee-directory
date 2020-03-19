@@ -2,7 +2,6 @@ import React, { Component } from "react";
 // import API from "../utils/API";
 //import EmployeeTable from "../components/EmployeeTable";
 import staticData from "../db/static_data.json"
-import TableBody from "../components/TableBody"
 
 class StaticEmployees extends Component {
     state = {
@@ -22,9 +21,7 @@ class StaticEmployees extends Component {
   render() {
     return (
       <div className="container">
-        <TableBody 
-        content={this.state.persons} changePersonHandler={this.state.changePersonHandler}
-        />
+      
       </div>
     );
   }
