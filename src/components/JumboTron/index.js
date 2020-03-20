@@ -6,7 +6,7 @@ function JumboTron() {
     <div className="jumbotron jumbotron-fluid" id="jumboTron">
       <div className="container">
         <h1 className="display-4">Company Directory</h1>
-        <p className="lead">Sort and filter employees below...</p>
+        <p className="lead">Search our internal directory below...</p>
       </div>
     </div>
   );

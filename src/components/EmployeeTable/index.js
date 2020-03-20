@@ -4,7 +4,7 @@ import PersonsContext from "../PersonsContext/personsContext"
 
 const EmployeeTable = () => {
   const persons = useContext(PersonsContext);
-  console.log(persons);
+  // console.log(persons.filterHandler);
   return (
     <table className="table table-striped">
       <thead className="thead-dark">
@@ -18,7 +18,7 @@ const EmployeeTable = () => {
         </tr>
       </thead>
       <tbody>
-        { persons.map((person, index) => {
+        { persons.personsArr.map((person, index) => {
           return (
             <tr key={index}>
               <td className="align-middle"><img src={person.picture.large} alt="headshot"></img></td>
