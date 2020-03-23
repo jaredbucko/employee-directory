@@ -3,18 +3,18 @@ import "./style.css";
 import PersonsContext from "../PersonsContext/personsContext"
 
 const EmployeeTable = () => {
-  const { personsState } = useContext(PersonsContext);
+  const { personsState, sortMethod } = useContext(PersonsContext);
   // console.log(persons.filterHandler);
   return (
     <table className="table table-striped">
       <thead className="thead-dark">
         <tr>
-          <th scope="col">Photo</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Phone</th>
-          <th scope="col">Email</th>
-          <th scope="col">DOB</th>
+          <th scope="col"><button type="button" className="btn btn-dark">Photo</button></th>
+          <th scope="col"><button type="button" className="btn btn-dark">First Name</button></th>
+          <th scope="col"><button type="button" className="btn btn-dark" onClick={sortMethod}>Last Name</button></th>
+          <th scope="col"><button type="button" className="btn btn-dark">Phone</button></th>
+          <th scope="col"><button type="button" className="btn btn-dark">Email</button></th>
+          <th scope="col"><button type="button" className="btn btn-dark">DOB</button></th>
         </tr>
       </thead>
       <tbody>
@@ -22,8 +22,8 @@ const EmployeeTable = () => {
           return (
             <tr key={index}>
               <td className="align-middle"><img src={person.picture.large} alt="headshot"></img></td>
-              <td className="align-middle">{person.name.last}</td>
               <td className="align-middle">{person.name.first}</td>
+              <td className="align-middle">{person.name.last}</td>
               <td className="align-middle">{person.phone}</td>
               <td className="align-middle">{person.email}</td>
               <td className="align-middle">{person.dob.date}</td>

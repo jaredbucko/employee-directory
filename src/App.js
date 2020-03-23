@@ -15,10 +15,27 @@ function App() {
     const searchStr = event.target.value.toLowerCase();
     let tempArr = [];
     originalPersonsState.forEach((item)=> {
-      if (item.name.first.toLowerCase().startsWith(searchStr)) {
+      if (item.name.first.toLowerCase().startsWith(searchStr) || item.name.last.toLowerCase().startsWith(searchStr)) {
         tempArr.push(item);
       }
     });
+    console.log(tempArr);
+    setPersonsState(tempArr);
+  }
+
+  function sortMethod() {
+    function compare(a, b) {
+      const lastnameA = a.name.last.toLowerCase();
+      const lastnameB = b.name.last.toLowerCase();
+      let comparison = 0;
+      if (lastnameA > lastnameB) {
+        comparison = 1;
+      } else if (lastnameA < lastnameB) {
+        comparison = -1;
+      }
+      return comparison;
+    }
+    let tempArr = originalPersonsState.sort(compare);
     console.log(tempArr);
     setPersonsState(tempArr);
   }
@@ -33,7 +50,7 @@ function App() {
   }, []);
 
   return (
-    <PersonsContext.Provider value={{personsState, searchMethod}}>
+    <PersonsContext.Provider value={{personsState, searchMethod, sortMethod}}>
       <div>
         <JumboTron />
         <div className="container">
