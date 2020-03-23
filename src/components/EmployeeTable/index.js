@@ -3,7 +3,7 @@ import "./style.css";
 import PersonsContext from "../PersonsContext/personsContext"
 
 const EmployeeTable = () => {
-  const persons = useContext(PersonsContext);
+  const { personsState } = useContext(PersonsContext);
   // console.log(persons.filterHandler);
   return (
     <table className="table table-striped">
@@ -18,7 +18,7 @@ const EmployeeTable = () => {
         </tr>
       </thead>
       <tbody>
-        { persons.personsArr.map((person, index) => {
+        { personsState.map((person, index) => {
           return (
             <tr key={index}>
               <td className="align-middle"><img src={person.picture.large} alt="headshot"></img></td>

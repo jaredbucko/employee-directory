@@ -6,30 +6,34 @@ import SearchBar from "./components/SearchBar";
 import EmployeeTable from "./components/EmployeeTable";
 
 function App() {
-  const [personsState, setPersonsState] = useState(
-    {
-      personsArr: [],
-      filterHandler: undefined
-    }
-  );
+  const [personsState, setPersonsState] = useState([]);
+  const [originalPersonsState, setOriginalPersonsState] = useState([]);
 
-  function searchMethod(searchStr) {
+  function searchMethod(event) {
     //somefunction to filter
-    personsState.personsArr.filter((item)=> {
-      return item.name.first.startsWith(searchStr);
-    })
+    console.log(event.target.value);
+    const searchStr = event.target.value.toLowerCase();
+    let tempArr = [];
+    originalPersonsState.forEach((item)=> {
+      if (item.name.first.toLowerCase().startsWith(searchStr)) {
+        tempArr.push(item);
+      }
+    });
+    console.log(tempArr);
+    setPersonsState(tempArr);
   }
 
   useEffect(() => {
     axios.get(`https://randomuser.me/api/?results=200&nat=us`)
     .then(res => {
-      const personsArr2 = res.data.results;
-      setPersonsState({personsArr: personsArr2, filterHandler: searchMethod});
+      const personsArr = res.data.results;
+      setPersonsState(personsArr);
+      setOriginalPersonsState(personsArr);
     })
   }, []);
 
   return (
-    <PersonsContext.Provider value={personsState}>
+    <PersonsContext.Provider value={{personsState, searchMethod}}>
       <div>
         <JumboTron />
         <div className="container">

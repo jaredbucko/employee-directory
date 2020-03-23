@@ -1,10 +1,5 @@
 import React from "react";
 
-const PersonsContext = React.createContext(
-    {
-        personsArr: [],
-        filterHandler: undefined
-    }
-);
+const PersonsContext = React.createContext([]);
 
 export default PersonsContext;
