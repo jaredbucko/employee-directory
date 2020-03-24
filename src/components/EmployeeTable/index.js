@@ -3,18 +3,19 @@ import "./style.css";
 import PersonsContext from "../PersonsContext/personsContext"
 
 const EmployeeTable = () => {
-  const { personsState, sortMethod } = useContext(PersonsContext);
+  const { personsState, sortMethodFirstName, sortMethodLastName } = useContext(PersonsContext);
+  // console.log('rendered');
   // console.log(persons.filterHandler);
   return (
     <table className="table table-striped">
-      <thead className="thead-dark">
+      <thead className="thead-light">
         <tr>
-          <th scope="col"><button type="button" className="btn btn-dark">Photo</button></th>
-          <th scope="col"><button type="button" className="btn btn-dark">First Name</button></th>
-          <th scope="col"><button type="button" className="btn btn-dark" onClick={sortMethod}>Last Name</button></th>
-          <th scope="col"><button type="button" className="btn btn-dark">Phone</button></th>
-          <th scope="col"><button type="button" className="btn btn-dark">Email</button></th>
-          <th scope="col"><button type="button" className="btn btn-dark">DOB</button></th>
+          <th scope="col"><button type="button" className="btn btn-dark" onClick={sortMethodLastName}>Photo</button></th>
+          <th scope="col"><button type="button" className="btn btn-dark" onClick={sortMethodFirstName}>First Name</button></th>
+          <th scope="col"><button type="button" className="btn btn-dark" onClick={sortMethodLastName}>Last Name</button></th>
+          <th scope="col"><button type="button" className="btn btn-dark" onClick={sortMethodLastName}>Phone</button></th>
+          <th scope="col"><button type="button" className="btn btn-dark" onClick={sortMethodLastName}>Email</button></th>
+          <th scope="col"><button type="button" className="btn btn-dark" onClick={sortMethodLastName}>DOB</button></th>
         </tr>
       </thead>
       <tbody>

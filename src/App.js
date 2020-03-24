@@ -23,7 +23,7 @@ function App() {
     setPersonsState(tempArr);
   }
 
-  function sortMethod() {
+  function sortMethodLastName() {
     function compare(a, b) {
       const lastnameA = a.name.last.toLowerCase();
       const lastnameB = b.name.last.toLowerCase();
@@ -35,9 +35,32 @@ function App() {
       }
       return comparison;
     }
-    let tempArr = originalPersonsState.sort(compare);
-    console.log(tempArr);
-    setPersonsState(tempArr);
+    let tempArr2 = [];
+    personsState.sort(compare);
+    personsState.forEach((item) => {
+      tempArr2.push(item);
+    })
+    setPersonsState(tempArr2);
+  }
+
+  function sortMethodFirstName() {
+    function compare(a, b) {
+      const firstnameA = a.name.first.toLowerCase();
+      const firstnameB = b.name.first.toLowerCase();
+      let comparison = 0;
+      if (firstnameA > firstnameB) {
+        comparison = 1;
+      } else if (firstnameA < firstnameB) {
+        comparison = -1;
+      }
+      return comparison;
+    }
+    let tempArr2 = [];
+    personsState.sort(compare);
+    personsState.forEach((item) => {
+      tempArr2.push(item);
+    })
+    setPersonsState(tempArr2);
   }
 
   useEffect(() => {
@@ -50,7 +73,7 @@ function App() {
   }, []);
 
   return (
-    <PersonsContext.Provider value={{personsState, searchMethod, sortMethod}}>
+    <PersonsContext.Provider value={{personsState, searchMethod, sortMethodLastName, sortMethodFirstName}}>
       <div>
         <JumboTron />
         <div className="container">
